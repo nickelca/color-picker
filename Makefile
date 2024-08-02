@@ -3,9 +3,9 @@ default: build
 SOURCES = main.c
 
 CC = gcc
-CFLAGS = -g3 -Wall -Wextra -Wpedantic -Werror -fsanitize=undefined,address -fno-strict-aliasing
+CFLAGS = -g3 -Wall -Wextra -Wpedantic -Werror -fsanitize=undefined,address -fno-strict-aliasing -lraylib
+# CFLAGS = -Wall -Wextra -Wpedantic -Werror -fno-strict-aliasing -O2 -lraylib
 OUT = main
-# CFLAGS = -Wall -Wextra -Wpedantic -Werror -fno-strict-aliasing -O2
 
 OBJECTS = $(SOURCES:%.c=./obj/%.o)
 
