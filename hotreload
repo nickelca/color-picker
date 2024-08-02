@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -x
+
+cflags=(-g3 -Wall -Wextra -Wpedantic -Werror -fsanitize=undefined,address -fno-strict-aliasing)
+ldflags=(-lraylib)
+
+rm ./bin/libcolor_picker.so
+gcc -c -fPIC $cflags ./src/color_picker.c -o ./obj/color_picker.o
+gcc -shared ./obj/color_picker.o -o ./bin/temp.so $ldflags
+mv ./bin/temp.so ./bin/libcolor_picker.so
+
