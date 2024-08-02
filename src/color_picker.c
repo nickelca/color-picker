@@ -3,8 +3,13 @@
 void run(void) {
     BeginDrawing();
 
-    ClearBackground(DARKPURPLE);
-    DrawText("Hello World", 320, 240, 32, SKYBLUE);
+    ClearBackground(GRAY);
+    DrawText("Hello World!", 320, 240, 32, SKYBLUE);
 
     EndDrawing();
+}
+
+#include <stdio.h>
+void funny(void) {
+    puts("Hello");
 }
