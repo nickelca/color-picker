@@ -9,7 +9,3 @@ void run(void) {
     EndDrawing();
 }
 
-#include <stdio.h>
-void funny(void) {
-    puts("Hello");
-}

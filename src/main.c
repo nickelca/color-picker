@@ -12,7 +12,7 @@ static void (*run)(void);
 static void nop(void) {}
 
 int main(void) {
-    DL(color_picker, "./libcolor_picker.so", "run", "funny");
+    DL(color_picker, "./libcolor_picker.so", "run");
     assert(dynlib_populate(&color_picker, true) == DYNLIB_OK);
     run = color_picker.symbols[0];
 
