@@ -1,16 +1,22 @@
+#include <assert.h>
+#include <dlfcn.h>
 #include <raylib.h>
 
+static void (*run)(void);
+
 int main(void) {
+    void *libhandle = dlopen("./libcolor_picker.so", RTLD_LOCAL | RTLD_NOW);
+    assert(libhandle);
+    run = dlsym(libhandle, "run");
+    assert(run);
+
     InitWindow(640, 480, "Color Picker");
 
     while (!WindowShouldClose()) {
-        BeginDrawing();
-
-        ClearBackground(DARKPURPLE);
-        DrawText("Hello World", 320, 240, 32, SKYBLUE);
-
-        EndDrawing();
+        run();
     }
+
+    dlclose(libhandle);
 
     return 0;
 }
